@@ -1,9 +1,13 @@
 package org.example;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TestSuit extends BaseTest{
     HomePage homePage = new HomePage();
@@ -20,7 +24,32 @@ public class TestSuit extends BaseTest{
     VerifyEmailMessage verifyEmailMessage = new VerifyEmailMessage();
     VerifyAddToCart verifyAddToCart = new VerifyAddToCart();
     AddToCart addToCart = new AddToCart();
+    DesktopsPage
+            desktopsPage = new DesktopsPage();
 
+@Test
+public void userShouldAbleToSeeCommentAddedSuccessfully(){
+    homePage.newRelease();
+}
+@Test
+public void userShouldAbleToSeeProductAsSelection(){
+    homePage.productSelect("Nike");
+}
+@Test
+public void userShouldAbleToClickOnAlertPopUp(){
+    homePage.selectVote();
+}
+@Test
+public void userShouldAbleToSortProduct(){
+    homePage.clickOnComputer();
+    homePage.clickOnDeskTops();
+    desktopsPage.productSortBy();
+
+}
+@Test
+public void userShouldAbleToHandleWindows(){
+    homePage.facebookPage();
+}
 
 @Test(priority = 1)
 public void userShouldAbleToRegisterSuccessfully(){

@@ -1,7 +1,6 @@
 package org.example;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 
@@ -27,10 +26,11 @@ public class RegistrationPage extends Utils{
     private By _confirmPassword = By.id("ConfirmPassword");
     String confirmPassword = "12345@";
     private By _registerButton = By.name("register-button");
+    LoadProp loadProp = new LoadProp();
 
 
     public void verifyUserShouldBeOnRegistrationPage(){
-        driverWaitsUntilURLTobe( 20, "https://demo.nopcommerce.com/registerresult/1?returnUrl=/");
+        driverWaitsUntilURLTobe( 20, loadProp.getProperty("url"));
     }
     public void userEntersRegistrationDetails(){
 
@@ -39,39 +39,39 @@ public class RegistrationPage extends Utils{
         clickElement(_genderFemale);
 
         // enter firstname
-        typeText((_firstName), firstName);
+        typeText((_firstName), loadProp.getProperty("firstname"));
 
         // enter lastname
-        typeText((_lastName),lastName);
+        typeText((_lastName),loadProp.getProperty("lastname"));
 
         //Select date of birth day
         //Select birthday = new Select(driver.findElement(By.name("DateOfBirthDay")));
         //birthday.selectByValue("5");
-        selectDropdownValue((_birthDay),value);
+        selectDropdownValue((_birthDay),loadProp.getProperty("DateOfBirth"));
 
         //select month
         //Select birthmonth = new Select(driver.findElement(By.name("DateOfBirthMonth")));
         //birthmonth.selectByValue("5");
-        selectDropdownValue((_birthMonth),value1);
+        selectDropdownValue((_birthMonth),loadProp.getProperty("DateOfMonth"));
 
         //select year
         //Select birthyear = new Select(driver.findElement(By.name("DateOfBirthYear")));
         //birthyear.selectByVisibleText("2020");
-        selectDropdownValue((_birthYear), value2);
+        selectDropdownValue((_birthYear), loadProp.getProperty("DateOfYear"));
 
         // enter Email
         //String email = name + date + _email;
         //System.out.println(email);
         //typeText((_email),email1);
-        String email = "Payal" + randomDate() + "payal_jp22@yahoo.com";
+        String email = loadProp.getProperty("Email1") + randomDate() + loadProp.getProperty("Email2");
         System.out.println(email);
         typeText(By.id("Email"), email);
 
         // enter password
-        typeText((_password),password);
+        typeText((_password),loadProp.getProperty("password"));
 
         // enter confirm password
-        typeText((_confirmPassword),confirmPassword);
+        typeText((_confirmPassword),loadProp.getProperty("confirm-password"));
 
         // click register button
         clickElement(_registerButton);
@@ -79,7 +79,7 @@ public class RegistrationPage extends Utils{
     // assertion to verify
     public void userRegisteredSuccessfullyMessage(){
         String actual = getTextFromElement(By.xpath("//div[@class = \"result\"]"));
-        String expected = "Your registration completed";
+        String expected = loadProp.getProperty("ExpectedRegisterSuccessfulMassage");
         Assert.assertEquals(actual,expected,"Registration is not successfull");
     }
 

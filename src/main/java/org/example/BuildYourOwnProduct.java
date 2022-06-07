@@ -38,13 +38,14 @@ public class BuildYourOwnProduct extends Utils{
         clickElement(_software1);
         clickElement(_software2);
         clickElement(_software3);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        driverClickable(10,_addToCart);
         // click on  Add to cart button
-        clickElement(_addToCart);
+        //clickElement(_addToCart);
     }
 }
 
