@@ -44,8 +44,10 @@ public class HomePage extends Utils{
             System.out.println(e.getText());
         }
     }
+    public void VerifyCurrentUrl(String Url){
+        driver.get("https://demo.nopcommerce.com/");
+    }
     public void clickRegisterButton(){
-
         clickElement(_clickElement);
     }
     public void clickOnComputer(){
@@ -55,6 +57,10 @@ public class HomePage extends Utils{
     public void clickOnDeskTops() {
         //click on Desktops
         clickElement(_clickElement2);
+    }
+    public void clickOnCategoryList(String category_name){
+       clickElement(By.linkText(category_name));
+
     }
     public void clickVote(){
 

@@ -30,6 +30,7 @@ public class RegistrationPage extends Utils{
 
 
     public void verifyUserShouldBeOnRegistrationPage(){
+
         driverWaitsUntilURLTobe( 20, loadProp.getProperty("url"));
     }
     public void userEntersRegistrationDetails(){

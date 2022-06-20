@@ -1,11 +1,11 @@
 package org.example;
 
-import dev.failsafe.internal.util.Assert;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -125,6 +125,10 @@ public class Utils  extends BasePage{
             WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(time));
             wait1.until(ExpectedConditions.elementToBeClickable(by)).click();
         }
+        public static void verifyCategory_url(String url){
+        driver.getCurrentUrl().equals(url);
+        }
+
 
 
     }

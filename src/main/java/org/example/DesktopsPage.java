@@ -19,14 +19,14 @@ public class DesktopsPage extends Utils {
         List<WebElement> productTitles = driver.findElements(By.xpath("//h2[@class=\"product-title\"]"));
         List<String> descendingProductTitles = new ArrayList<String>();
         for (WebElement e : productTitles) {
-            descendingProductTitles.add(e.getText().substring(0, 1));
+            descendingProductTitles.add(e.getText());
         }
         Collections.sort(descendingProductTitles, Collections.reverseOrder());
         System.out.println(descendingProductTitles);
 
         List<String> actualProductTitles = new ArrayList<String>();
         for (WebElement e : productTitles) {
-            actualProductTitles.add(e.getText().substring(0, 1));
+            actualProductTitles.add(e.getText());
         }
         System.out.println(actualProductTitles);
         Assert.assertTrue(actualProductTitles.equals(descendingProductTitles));
